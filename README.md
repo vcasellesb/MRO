@@ -71,4 +71,4 @@ Because `type(self)` (`E`) 's MRO is:
 
 `(<class '__main__.E'>, <class '__main__.C'>, <class '__main__.B'>, <class '__main__.D'>, <class '__main__.A'>, <class 'object'>)`
 
-And as the second quote says, the first `super().__init__()` call is called within class `C`, which calls `super().__init__` from within `B`, and thus the MRO algorithm "looks at the MRO of `type(self)` and **skips everything up to `C`**."!, in which case the next class in the MRO with an `__init__` defined is `D`, which is what we're seeing in this example. It can either print something first (last example), or call `super.__init__()` first, which in turn calls `A`'s `__init__` method.
+And as the second quote says, the first `super().__init__()` call is called within class `C`, which calls `super().__init__` from within `B`, and thus the MRO algorithm "looks at the MRO of `type(self)` and **skips everything up to `B`**."!, in which case the next class in the MRO with an `__init__` defined is `D`, which is what we're seeing in this example. It can either print something first (last example), or call `super.__init__()` first, which in turn calls `A`'s `__init__` method.
