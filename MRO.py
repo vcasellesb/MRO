@@ -28,6 +28,10 @@ class C(B):
         print('Running __init__ from class C')
 
 class D(A):
+    # def __init__(self):
+    #     super().__init__()
+    #     print('Running __init__ from class D')
+    
     def method3(self):
         print('Running method 3 from class D')
 
@@ -35,7 +39,7 @@ class E(C, D):
     pass
 
 if __name__ == "__main__":
-    e = E()
+    e = E() # calls __init__ in order: A -> B -> C
     e.method1() # Running method 1 from class B
     e.method2() # Running method 2 from class B
     e.method3() # Running method 3 from class D
